@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+//Q1
+
+function power(a, b) {
+    var result = 1;
+    for (var i = 0; i < b; i++) {
+        result *= a;
+    }
+    return result;
+}
+
+// Example usage
+console.log(power(2, 3)); // Outputs: 8
+console.log(power(5, 4)); // Outputs: 625
+
+
+//Q2
+
+function LeapYear(year) {
+    // If the year is divisible by 400, it is a leap year
+    if (year % 400 === 0) {
+        return true;
+    }
+    // If the year is divisible by 100 but not 400, it is not a leap year
+    else if (year % 100 === 0) {
+        return false;
+    }
+    // If the year is divisible by 4 but not by 100, it is a leap year
+    else if (year % 4 === 0) {
+        return true;
+    }
+    // If the year is not divisible by 4, it is not a leap year
+    else {
+        return false;
+    }
+}
+
+// Example usage:
+console.log(LeapYear(2020)); // true
+console.log(LeapYear(1900)); // false
+console.log(LeapYear(2000)); // true
+console.log(LeapYear(2023)); // false
+
+//Q3
+
+// Function to calculate the semi-perimeter (S) of the triangle
+function calculateSemiPerimeter(a, b, c) {
+    return (a + b + c) / 2;
+}
+
+// Function to calculate the area of the triangle using Heron's formula
+function calculateArea(a, b, c) {
+    var S = calculateSemiPerimeter(a, b, c); // Get the semi-perimeter S
+    // Heron's formula to calculate the area
+    var area = Math.sqrt(S * (S - a) * (S - b) * (S - c));
+    return area;
+}
+
+var a = 6, b = 7, c = 8;
+console.log("Area of the triangle: " + calculateArea(a, b, c)); // Outputs the area of the triangle
+
+//Q4
+
+
+// Function to calculate the average marks
+function calculateAverage(marks1, marks2, marks3) {
+    var totalMarks = marks1 + marks2 + marks3;
+    return totalMarks / 3; // Calculate and return the average
+}
+
+// Function to calculate the percentage
+function calculatePercentage(marks1, marks2, marks3) {
+    var totalMarks = marks1 + marks2 + marks3;
+    var maxMarks = 300; // Assuming each subject has a max of 100 marks
+    return (totalMarks / maxMarks) * 100; // Calculate and return the percentage
+}
+
+// Main function to receive marks, calculate average and percentage, and display results
+function mainFunction(marks1, marks2, marks3) {
+    var average = calculateAverage(marks1, marks2, marks3); // Call average function
+    var percentage = calculatePercentage(marks1, marks2, marks3); // Call percentage function
+
+    console.log("Average Marks: " + average);
+    console.log("Percentage: " + percentage + "%");
+}
+
+var marks1 = 85, marks2 = 90, marks3 = 78;
+mainFunction(marks1, marks2, marks3);
+
+//Q5
+
+function customIndexOf(str, char) {
+    
+    for (var i = 0; i < str.length; i++) {
+        // If the character at the current index matches the target character
+        if (str[i] === char) {
+            return i; // Return the index
+        }
+    }
+    // If the character is not found, return -1
+    return -1;
+}
+
+// Example usage:
+console.log(customIndexOf("hello", "e"));  // Outputs: 1
+console.log(customIndexOf("hello", "l"));  // Outputs: 2
+console.log(customIndexOf("hello", "z"));  // Outputs: -1
+
+//Q6
+
+function deleteVowels(sentence) {
+    // Define vowels (both lowercase and uppercase)
+    const vowels = "aeiouAEIOU";
+    
+    // Initialize an empty string to store the result
+    let result = "";
+    
+    // Loop through each character of the sentence
+    for (var i = 0; i < sentence.length; i++) {
+        // If the character is not a vowel, add it to the result
+        if (!vowels.includes(sentence[i])) {
+            result += sentence[i];
+        }
+    }
+    
+    // Return the sentence without vowels
+    return result;
+}
+
+// Example 
+var sentence = "Hello World! iam here";
+var noVowels = deleteVowels(sentence);
+console.log(noVowels); 
+
+//Q7
+
+
+function countVowelPairs(text) {
+    // Define vowels (both lowercase and uppercase)
+    var vowels = "aeiouAEIOU";
+    var count = 0; // Initialize a counter for vowel pairs
+
+    // Loop through the string up to the second-last character
+    for (var i = 0; i < text.length - 1; i++) {
+        var char1 = text[i];
+        var char2 = text[i + 1];
+
+        // Check if both current and next characters are vowels
+        if (vowels.includes(char1) && vowels.includes(char2)) {
+            switch (char1 + char2) {
+                // Add cases for each possible vowel pair
+                case "aa":
+                case "ae":
+                case "ai":
+                case "ao":
+                case "au":
+                case "ea":
+                case "ee":
+                case "ei":
+                case "eo":
+                case "eu":
+                case "ia":
+                case "ie":
+                case "ii":
+                case "io":
+                case "iu":
+                case "oa":
+                case "oe":
+                case "oi":
+                case "oo":
+                case "ou":
+                case "ua":
+                case "ue":
+                case "ui":
+                case "uo":
+                case "uu":
+                //  uppercase vowel pairs
+                case "AA":
+                case "AE":
+                case "AI":
+                case "AO":
+                case "AU":
+                case "EA":
+                case "EE":
+                case "EI":
+                case "EO":
+                case "EU":
+                case "IA":
+                case "IE":
+                case "II":
+                case "IO":
+                case "IU":
+                case "OA":
+                case "OE":
+                case "OI":
+                case "OO":
+                case "OU":
+                case "UA":
+                case "UE":
+                case "UI":
+                case "UO":
+                case "UU":
+                    count++; // Increment count if a vowel pair is found
+                    break;
+            }
+        }
+    }
+
+    return count; // Return the total count of vowel pairs
+}
+
+// Example usage:
+var text = "Pleases read this application and give me gratuity";
+var vowelPairCount = countVowelPairs(text);
+console.log("Number of vowel pairs: " + vowelPairCount);
+
+//Q8
+
+// Function to convert kilometers to meters
+function convertToMeters(km) {
+    return km * 1000; // 1 kilometer = 1000 meters
+}
+
+// Function to convert kilometers to feet
+function convertToFeet(km) {
+    return km * 3280.84; // 1 kilometer = 3280.84 feet
+}
+
+// Function to convert kilometers to inches
+function convertToInches(km) {
+    return km * 39370.1; // 1 kilometer = 39370.1 inches
+}
+
+// Function to convert kilometers to centimeters
+function convertToCentimeters(km) {
+    return km * 100000; // 1 kilometer = 100000 centimeters
+}
+
+// Main function to input distance and display conversions
+function displayConversions(km) {
+    console.log("Distance in meters: " + convertToMeters(km) + " meters");
+    console.log("Distance in feet: " + convertToFeet(km) + " feet");
+    console.log("Distance in inches: " + convertToInches(km) + " inches");
+    console.log("Distance in centimeters: " + convertToCentimeters(km) + " centimeters");
+}
+
+// Example :
+let distanceInKm = 5; // Input distance in kilometers
+displayConversions(distanceInKm);
+
+//Q9
+
+function calculateOvertimePay(hoursWorked) {
+    var overtimeRate = 12.00; // Rs. 12.00 per hour for overtime
+    var regularHours = 40; // Regular working hours
+
+    // Check if the employee worked more than 40 hours
+    if (hoursWorked > regularHours) {
+        var overtimeHours = hoursWorked - regularHours; // Calculate overtime hours
+        var overtimePay = overtimeHours * overtimeRate; // Calculate overtime pay
+        return overtimePay;
+    } else {
+        return 0; // No overtime pay if worked 40 or fewer hours
+    }
+}
+
+// Main function to input hours worked and display overtime pay
+function displayOvertimePay(hoursWorked) {
+    var overtimePay = calculateOvertimePay(hoursWorked);
+    if (overtimePay > 0) {
+        console.log("Overtime pay: Rs. " + overtimePay);
+    } else {
+        console.log("No overtime pay. Worked 40 or fewer hours.");
+    }
+}
+
+// Example usage
+var hoursWorked = 45; // Input number of hours worked
+displayOvertimePay(hoursWorked);
+
+//Q10
+
+function calculateNotes(amount) {
+    // Convert amount to rupees
+    amount *= 100; // amount is in hundreds, so multiply by 100 to get the actual amount in rupees
+    
+    var notes100 = Math.floor(amount / 100); // Number of 100-rupee notes
+    amount = amount % 100; // Remaining amount after giving 100-rupee notes
+
+    var notes50 = Math.floor(amount / 50); // Number of 50-rupee notes
+    amount = amount % 50; // Remaining amount after giving 50-rupee notes
+
+    var notes10 = Math.floor(amount / 10); // Number of 10-rupee notes
+
+    // Return the number of each note required
+    return {
+        notes100: notes100,
+        notes50: notes50,
+        notes10: notes10
+    };
+}
+
+// Main function to input amount and display the number of notes
+function displayNotes(amount) {
+    var notes = calculateNotes(amount);
+    
+    console.log("Number of 100-rupee notes: " + notes.notes100);
+    console.log("Number of 50-rupee notes: " + notes.notes50);
+    console.log("Number of 10-rupee notes: " + notes.notes10);
+}
+
+// Example usage
+var amount = 25; // Input amount in hundreds
+displayNotes(amount);
+
+
+   </script> 
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Q2 -->
+
+<img src="IMAGES/mob2.jfif" width="300" height="300" onclick="alert('thanks for purchasing us')">
+<img src="IMAGES/mob3.jfif" width="300" height="300" onclick="alert('thanks for connecting us')">
+<img src="IMAGES/mob4.jfif" width="300" height="300" onclick="alert('thanks for join us')">
+<br> <br> <br>
+
+<!-- Q1 -->
+<a href="#" onclick="alert('Hi everyone')" id="a1">welcome to the lux home decore</a><br><br>
+
+
+<!-- Q3 -->
+<h2>Student Records</h2>
+
+<table id="studentTable">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Class</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Rows will be inserted here by JavaScript -->
+    </tbody>
+</table>
+
+<!-- Q5 -->
+
+<img src="IMAGES/int 7.jpg" width="1300px" height="400px"  id="img2" onmouseover="src='IMAGES/int 8.jpg '" onmouseout="src='IMAGES/int 7.jpg'">
+
+
+<!-- Q6 -->
+
+<h2>Simple Counter</h2>
+<div id="counter">0</div>
+<button onclick="increaseCounter()">Increase</button>
+<button onclick="decreaseCounter()">Decrease</button>
+
+
+  <script>
+
+    //Q4
+
+// Sample student data
+var students = [
+        {id: 1, name: 'John Doe', age: 18, class: '12-A'},
+        {id: 2, name: 'Jane Smith', age: 19, class: '12-B'},
+        {id: 3, name: 'Peter Parker', age: 17, class: '11-A'},
+        {id: 4, name: 'Bruce Wayne', age: 18, class: '12-C'},
+        {id: 5, name: 'Clark Kent', age: 19, class: '12-D'},
+        {id: 6, name: 'Diana Prince', age: 18, class: '11-B'},
+        {id: 7, name: 'Barry Allen', age: 17, class: '11-C'},
+        {id: 8, name: 'Hal Jordan', age: 18, class: '12-E'},
+        {id: 9, name: 'Arthur Curry', age: 19, class: '12-F'},
+        {id: 10, name: 'Victor Stone', age: 18, class: '11-D'}
+    ];
+
+    // Function to create table rows
+    function createTable() {
+        var tableBody = document.querySelector('#studentTable tbody');
+        students.forEach((student, index) => {
+            var row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${student.id}</td>
+                <td>${student.name}</td>
+                <td>${student.age}</td>
+                <td>${student.class}</td>
+                <td><button onclick="deleteRow(this)">Delete</button></td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Function to delete a row
+    function deleteRow(button) {
+        // Find the parent row of the clicked button and remove it
+        var row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+
+    // Create the table on page load
+    createTable();
+
+//Q6
+
+
+    var count = 0;
+
+    // Function to increase the counter
+    function increaseCounter() {
+        count++;
+        document.getElementById('counter').textContent = count;
+    }
+
+    // Function to decrease the counter
+    function decreaseCounter() {
+        count--;
+        document.getElementById('counter').textContent = count;
+    }
+
+  </script>  
+</body>
+</html>

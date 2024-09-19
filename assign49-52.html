@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signup Form</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    
+
+        <!-- Q1 -->
+
+        <h2>Signup Form</h2>
+        <form id="signupForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
+    
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+    
+            <button type="submit">Submit</button>
+        </form>
+    
+        <h3>Submitted Data</h3>
+        <div id="output"></div>
+    
+    
+        <!-- Q2 -->
+
+        
+    <div class="content">
+        <h2>Click here</h2>
+        <p>
+            <span class="short-text">Another brief description...</span>
+            <span class="full-text">Full details about the second item, including everything the user needs to know about this specific item.</span>
+        </p>
+        <button class="read-more-btn" onclick="toggleText(this)">Read More</button>
+    </div>
+
+
+    <!-- Q3 -->
+
+
+    <h2>Student Details Form</h2>
+    <!-- Form for adding students -->
+    <form id="studentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="grade">Grade:</label>
+        <input type="text" id="grade" name="grade" required><br>
+
+        <button type="submit">Add Student</button>
+    </form>
+
+    <h2>Student Table</h2>
+    <!-- Table for displaying student details -->
+    <table border="1" id="studentTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Grade</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dynamic rows will appear here -->
+        </tbody>
+    </table>
+
+    <!-- Hidden form for editing student details -->
+    <div id="editFormContainer" style="display:none;">
+        <h2>Edit Student Details</h2>
+        <form id="editStudentForm">
+            <label for="editName">Name:</label>
+            <input type="text" id="editName" name="editName" required><br>
+
+            <label for="editAge">Age:</label>
+            <input type="number" id="editAge" name="editAge" required><br>
+
+            <label for="editGrade">Grade:</label>
+            <input type="text" id="editGrade" name="editGrade" required><br>
+
+            <button type="submit">Update Student</button>
+        </form>
+    </div>
+
+
+
+
+    
+
+    
+
+
+   <script>
+    //Q1
+
+ document.getElementById('signupForm').addEventListener('submit', function(event) {
+     event.preventDefault(); // Prevent form from refreshing the page
+    
+    // // Get form values
+     var firstName = document.getElementById('firstName').value;
+     var lastName = document.getElementById('lastName').value;
+     var email = document.getElementById('email').value;
+     var password = document.getElementById('password').value;
+
+    // Display form data
+    var output = document.getElementById('output');
+    output.innerHTML = `
+        <p><strong>First Name:</strong> ${firstName}</p>
+        <p><strong>Last Name:</strong> ${lastName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Password:</strong> ${password}</p>
+    `;
+});
+
+
+
+//Q2
+
+function toggleText(button) {
+    var content = button.previousElementSibling; // Get the previous sibling element (the <p> tag)
+    var fullText = content.querySelector('.full-text');
+    var shortText = content.querySelector('.short-text');
+
+    if (fullText.style.display === 'none') {
+        fullText.style.display = 'inline';  // Show full text
+        shortText.style.display = 'none';   // Hide short text
+        button.textContent = 'Read Less';   // Change button text
+    } else {
+        fullText.style.display = 'none';    // Hide full text
+        shortText.style.display = 'inline'; // Show short text
+        button.textContent = 'Read More';   // Change button text
+    }
+}
+
+
+//Q3
+
+// Handle form submission to add student
+document.getElementById('studentForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from refreshing the page
+
+    // Get form values
+    var name = document.getElementById('name').value;
+    var age = document.getElementById('age').value;
+    var grade = document.getElementById('grade').value;
+
+    // Add the student details to the table
+    addStudentToTable(name, age, grade);
+
+    // Clear the form
+    document.getElementById('studentForm').reset();
+});
+
+function addStudentToTable(name, age, grade) {
+    var table = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow();
+
+    newRow.insertCell(0).textContent = name;
+    newRow.insertCell(1).textContent = age;
+    newRow.insertCell(2).textContent = grade;
+
+    // Create delete button
+    var deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.onclick = function() {
+        deleteRow(this);
+    };
+
+    // Create edit button
+    var editBtn = document.createElement('button');
+    editBtn.textContent = 'Edit';
+    editBtn.onclick = function() {
+        editRow(this);
+    };
+
+    // Insert buttons into last cell
+    var actionCell = newRow.insertCell(3);
+    actionCell.appendChild(editBtn);
+    actionCell.appendChild(deleteBtn);
+}
+
+// Delete row function
+function deleteRow(button) {
+    var row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row); // Remove the row
+}
+
+// Edit row function
+function editRow(button) {
+    var row = button.parentNode.parentNode;
+    var cells = row.getElementsByTagName('td');
+
+    // Show the edit form with existing values
+    document.getElementById('editName').value = cells[0].textContent;
+    document.getElementById('editAge').value = cells[1].textContent;
+    document.getElementById('editGrade').value = cells[2].textContent;
+    document.getElementById('editFormContainer').style.display = 'block';
+
+    // Handle edit form submission
+    document.getElementById('editStudentForm').onsubmit = function(event) {
+        event.preventDefault();
+
+        // Update table with new values
+        cells[0].textContent = document.getElementById('editName').value;
+        cells[1].textContent = document.getElementById('editAge').value;
+        cells[2].textContent = document.getElementById('editGrade').value;
+
+        // Hide the edit form after updating
+        document.getElementById('editFormContainer').style.display = 'none';
+        document.getElementById('editStudentForm').reset();
+    };
+}
+
+
+   </script> 
+</body>
+</html>

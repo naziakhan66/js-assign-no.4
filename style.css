@@ -1,0 +1,227 @@
+body{
+    
+    
+}
+
+.d1{
+    border: 5px;
+    color: black;
+    background-color: rgb(72, 218, 218);
+    height: 65vh;
+    width: 700px;
+    margin: auto ;
+    margin-top: 150px;
+    border-radius: 50px;
+}
+
+h1{
+    text-align: center;
+padding-top: 50px;
+font-size: 40px;
+}
+
+h2{
+    text-align: center;
+}
+
+h2 a{
+    color: black;
+    font-size: larger;
+}
+#a1{
+    font-size: 30px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 0 0  7px grey;
+    padding:3px ;
+    margin-left: 100px;
+    
+    
+
+}
+
+img{
+    margin-left: 100px;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+th {
+    background-color: #f2f2f2;
+}
+button {
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #ff1a1a;
+}
+#img2{
+    margin-left: 10px;
+    
+    padding-top:30px ;
+    padding-bottom: 50px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+#counter {
+    font-size: 2em;
+    margin: 20px 0;
+}
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
+/* chapter49 t0 52 */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#output {
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Q2 */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.content {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 400px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+.full-text {
+    display: none; /* Hide full text initially */
+}
+
+button.read-more-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.read-more-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Q3 */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #000;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#editFormContainer {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
